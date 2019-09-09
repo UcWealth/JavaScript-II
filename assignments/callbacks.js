@@ -2,16 +2,14 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
+// Function firstItem(items,cb => cb(items[0]));
+// console.log(firstItem);
 /* 
-
   // GIVEN THIS PROBLEM:
-
   function firstItem(arr, cb) {
     // firstItem passes the first item of the given array to the callback function.
   }
-
   // SOLUTION:
-
   function firstItem(arr, cb) {
     return cb(arr[0]);
   }
@@ -37,28 +35,60 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   const test2 = firstItem(items, logExorbitantPrice);
   console.log(test2); // "this Pencil is worth a million dollars!"
 */
-
-
-function getLength(arr, cb) {
+// function getLength(items, cb) {}
   // getLength passes the length of the array into the callback.
-}
+  let getLength = (arr, cb) => {
+    for(let i = 0; i < arr.length; i++) {
+      cb(arr.length)
+    }
+  };
+
+  getLength(items, function(x) {
+    console.log(x);
+  });
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
-}
+  for(let j = 0; j < arr.length; j++) {
+    cb(arr[arr.length - 1])
+  }
+};
+
+last(items, function(lastItem){
+  console.log(lastItem);
+});
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  cb(x + y)
 }
+
+sumNums(5, 7, (cbvalue) => {
+  console.log(cbvalue)
+});
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  cb(x*y)
 }
+
+multiplyNums(7,9,(mn) => {
+  console.log(mn);
+})
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  if(list.includes(item)) {
+    cb(true)
+  } else {
+    cb(false)
+  }
 }
+
+contains('Pencil', items, (tof) => {
+  console.log(tof);
+});
 
 /* STRETCH PROBLEM */
 
